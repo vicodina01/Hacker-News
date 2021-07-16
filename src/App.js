@@ -12,15 +12,15 @@ function App() {
   let getLocalFavs = tasks.filter(e => e.localFavs === "true")
 
   useEffect(() => {
-    const getTasks = async (opt) =>{
-      const tasksFromAPI =  await fetchTasks(opt)
-      setTasks(tasksFromAPI)
-      setFilteredTasks(tasksFromAPI);
-      setCurrentFilter('all');
-    }
-
-    getTasks(selectedNews);
+    getTasks(selectedNews)
   },[])
+
+  const getTasks = async (opt) =>{
+    const tasksFromAPI =  await fetchTasks(opt)
+    setTasks(tasksFromAPI)
+    setFilteredTasks(tasksFromAPI)
+    setCurrentFilter('all')
+  }
 
   const fetchTasks =  async (opt) => {
    
@@ -76,10 +76,11 @@ function App() {
   }
 
 
-  const selectNews= (selected) =>{
+  const selectNews = (selected) =>{
     console.log("selected" + selected)
     setSelectedNews(selected);
     console.log("setSelectedNews" + selectedNews)
+    getTasks(selectedNews)
   }
 
   return (
