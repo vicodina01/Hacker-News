@@ -45,6 +45,48 @@ body {
   color: #3b3b3b;
   
 }
+.button-container{
+  height: 60px;
+  margin: 0 40%;
+}
+
+.button-allTasks{
+  border-radius: 2px 0px 0px 2px;
+}
+
+.button-localFavs{
+  border-radius: 0px 2px 2px 0px;
+}
+
+.button-allTasks,
+.button-localFavs{
+  width: 98px;
+  height: 31px;
+  border: solid 1px #d6d6d6; 
+  padding: 3px 16px 0 17px; 
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.75;
+  letter-spacing: normal;
+  text-align: center;
+  color: #6a6a6a;
+
+}
+
+.button-localFavs.active,
+.button-allTasks.active{
+  border: solid 1px #1797ff; 
+  color: #1797ff;
+}
+
+.button-localFavs:hover,
+.button-allTasks:hover {
+  opacity: 0.4;
+  cursor:pointer;
+}
 
 .task {
   position: relative;
@@ -79,7 +121,7 @@ body {
 }
 
 .task-title{
-  width: 70%;
+  width: 75%;
   height: 20px;
   margin: 6px 0 0;
   font-family: Roboto;
@@ -98,7 +140,7 @@ a >.task-title{
 .iconmonstr-time-2 {
   width: 16px;
   height: 16px;
-  margin: 16px 0px 6px 0;
+  margin: 16px 0px 0px 0;
   object-fit: contain;
   float: left;
 }
@@ -119,60 +161,36 @@ a >.task-title{
   opacity: 0.03;
 }
 
-.iconmonstr-favorite-3,
-.iconmonstr-favorite-2 {
+.iconmonstr-favorite {
   width: 24px;
   height: 22px;
   object-fit: contain;
 }
 
-.task:hover > .like-content >.iconmonstr-favorite-3{
+.task:hover > .like-content >.iconmonstr-favorite{
   opacity: 0.5;
 }
 
 
 .task h3 {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
-.add-form {
-  margin-bottom: 40px;
-}
+.select-news{
+  width: 240px;
+  height: 32px;
+  margin: 63px 114px 1px 10%;
+  padding: 5px 12px 5px 12px;
+  border-radius: 4px;
+  border: solid 1px #2e2e2e;
+  background-color: #ffffff;
 
-.form-control {
-  margin: 20px 0;
-}
-
-.form-control label {
-  display: block;
-}
-
-.form-control input {
-  width: 100%;
-  height: 40px;
-  margin: 5px;
-  padding: 3px 7px;
-  font-size: 17px;
-}
-
-.form-control-check {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.form-control-check label {
-  flex: 1;
-}
-
-.form-control-check input {
-  flex: 2;
-  height: 20px;
-}
-
-footer {
-  margin-top: 30px;
-  text-align: center;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.57;
+  letter-spacing: normal;
+  color: #343434;
 }
