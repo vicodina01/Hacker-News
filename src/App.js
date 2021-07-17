@@ -85,7 +85,7 @@ function App() {
   //get localStorage SelectedNews
   const getLocalStorageSelectedNews = () => {  
     const localSelectedNews = localStorage.getItem('localStorageSelectedNews')
-    return localSelectedNews !== undefined ?   localSelectedNews : "angular";
+    return localSelectedNews !== undefined  && localSelectedNews !== null ?   localSelectedNews : "angular";
   }
 
   return (
