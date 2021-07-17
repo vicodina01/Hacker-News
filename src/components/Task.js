@@ -10,7 +10,7 @@ const Task = ({task, onToggle}) => {
                 <div className="like-content" onClick={() => onToggle(task.objectID)}>
                     <img src={task.localFavs ==="true" ? iconFavs3 :iconFavs2 } 
                         className="iconmonstr-favorite"
-                        alt="iconFavs" />{task.localFavs}
+                        alt="iconFavs" />
                 </div>
                 
                 <img src={iconTime} className="iconmonstr-time-2" alt="iconTime" />

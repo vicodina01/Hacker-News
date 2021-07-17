@@ -1,5 +1,6 @@
 
 import Task from "./Task"
+import ButtonFilterFavs from "./ButtonFilterFavs"
 
 const Tasks = ({tasks, onToggle, showLocalFavs, showAllTasks, currentFilter, onSelect, selectedNews}) => {
 
@@ -10,14 +11,9 @@ const Tasks = ({tasks, onToggle, showLocalFavs, showAllTasks, currentFilter, onS
 
     return (
         <> 
-            <div className="button-container">
-                <button type="button" 
-                    className={`button-allTasks ${currentFilter === 'all' ? 'active': ''}`} 
-                    onClick={() => showAllTasks()} >All</button>
-                <button type="button" 
-                    className={`button-localFavs ${currentFilter === 'favs' ? 'active': ''}`} 
-                    onClick={() => showLocalFavs()} >My Favs</button>   
-            </div>
+            <ButtonFilterFavs showLocalFavs={showLocalFavs} 
+                showAllTasks={showAllTasks} 
+                currentFilter={currentFilter}></ButtonFilterFavs>
           
             <div>
                 <select id="idsSelectedNews" 

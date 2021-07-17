@@ -47,15 +47,13 @@ function App() {
 
   //Toggle Favs
   const toggleFavs = (id) => {
-    //local storage can only store strings
     const localFav = getLocalStorageFavs(id) === "true" ? "false" : "true";
     localStorage.setItem('localStorageFavs_'+ id, localFav);
     setTasks(tasks.map((task) => task.objectID === id ? { ...task, localFavs: localFav}: task)) 
     setFilteredTasks(currentFilter === 'all' ? tasks : getLocalFavs) 
-    console.log(filteredTasks)
   }
 
-  //get LocalFavs
+  //get localStorage Favs
   const getLocalStorageFavs = (id) => {  
     const localFav = localStorage.getItem('localStorageFavs_'+ id)
     return localFav !== undefined && localFav !== null ? localFav : "false";   
@@ -65,21 +63,17 @@ function App() {
   const showLocalFavs = () =>{  
     setFilteredTasks(getLocalFavs)
     setCurrentFilter('favs')
-    console.log("showLocalFavs" + filteredTasks)
   }
 
   //filter all tasks
   const showAllTasks = () => {
     setFilteredTasks(tasks)
     setCurrentFilter('all')
-    console.log("howAllTasks" + filteredTasks)
   }
 
 
   const selectNews = (selected) =>{
-    console.log("selected" + selected)
-    setSelectedNews(selected);
-    console.log("setSelectedNews" + selectedNews)
+    setSelectedNews(selected)
     getTasks(selectedNews)
   }
 
@@ -88,7 +82,7 @@ function App() {
       <Header/>
       
       {tasks.length > 0 ?(
-        <Tasks tasks = {filteredTasks} 
+        <Tasks tasks = {currentFilter === 'all' ? tasks : filteredTasks} 
             showLocalFavs={showLocalFavs}
             showAllTasks={showAllTasks}
             currentFilter={currentFilter}
@@ -96,7 +90,7 @@ function App() {
             selectedNews={selectedNews}
             onToggle={toggleFavs}  />
       ) : (
-        "No tasks to wshow"
+        "No tasks to show"
       )}   
     </div>
   );
