@@ -47,7 +47,15 @@ body {
 }
 .button-container{
   height: 60px;
-  margin: 0 40%;
+  width: 100%;
+}
+
+.flex-parent {
+  display: flex;
+}
+
+.jc-center {
+  justify-content: center;
 }
 
 .button-allTasks{

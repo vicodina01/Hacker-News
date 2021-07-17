@@ -2,16 +2,15 @@ import { useState, useEffect} from "react";
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 
-
 function App() {
   const [tasks, setTasks] = useState([])
   const [filteredTasks, setFilteredTasks] = useState([]);
   const [currentFilter, setCurrentFilter] = useState([]);
-  const [selectedNews, setSelectedNews] = useState('angular');
 
   let getLocalFavs = tasks.filter(e => e.localFavs === "true")
 
   useEffect(() => {
+    const selectedNews = getLocalStorageSelectedNews()
     getTasks(selectedNews)
   },[])
 
@@ -40,7 +39,6 @@ function App() {
             hitList.push(hit)
       }
     });
-    console.log(hitList)
     
     return hitList
   }
@@ -73,8 +71,21 @@ function App() {
 
 
   const selectNews = (selected) =>{
-    setSelectedNews(selected)
-    getTasks(selectedNews)
+    setLocalStorageSelectedNews(selected)
+    getTasks(selected)
+  }
+
+
+  //set localStorage SelectedNews
+  const setLocalStorageSelectedNews = (opt) => { 
+    localStorage.setItem('localStorageSelectedNews', opt)
+    console.log('localStorageSelectedNews' + opt)
+  }
+
+  //get localStorage SelectedNews
+  const getLocalStorageSelectedNews = () => {  
+    const localSelectedNews = localStorage.getItem('localStorageSelectedNews')
+    return localSelectedNews !== undefined ?   localSelectedNews : "angular";
   }
 
   return (
@@ -87,7 +98,7 @@ function App() {
             showAllTasks={showAllTasks}
             currentFilter={currentFilter}
             onSelect={selectNews}
-            selectedNews={selectedNews}
+            selectedNews={getLocalStorageSelectedNews()}
             onToggle={toggleFavs}  />
       ) : (
         "No tasks to show"

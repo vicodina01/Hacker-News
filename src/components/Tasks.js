@@ -21,11 +21,10 @@ const Tasks = ({tasks, onToggle, showLocalFavs, showAllTasks, currentFilter, onS
                     value={selectedNews}
                     className="select-news">
                         <option value="select">Select your news</option>
-                        <option value="Angular">Angular</option>
-                        <option value="ReactJs">ReactJs</option>
-                        <option value="VueJs">VueJs</option>
+                        <option value="angular">Angular</option>
+                        <option value="reactjs">ReactJs</option>
+                        <option value="vuejs">VueJs</option>
                </select>
-               {selectedNews}
             </div>
 
             {tasks.map((task) =>(
