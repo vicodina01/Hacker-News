@@ -108,6 +108,7 @@ body {
   background-color: #ffffff;
   float: left;
 }
+
 .task:hover {
   opacity: 0.4;
   cursor:pointer;
@@ -186,7 +187,7 @@ body {
 }
 
 .select-news{
-  width: 240px;
+  width:20%;
   height: 32px;
   margin: 63px 114px 1px 10%;
   padding: 5px 12px 5px 12px;
@@ -202,4 +203,28 @@ body {
   line-height: 1.57;
   letter-spacing: normal;
   color: #343434;
+}
+/* On screens that are 992px or less */
+@media screen and (max-width: 992px) {
+  .header {
+    padding: 42px 5%;
+  }
+  .task {
+    width: 42.5%;
+    margin: 38px 0 33px 5%;
+  }
+  .select-news{
+    width: 42.5%;
+    margin: 63px 114px 1px 5%;
+  }
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+  .task {
+    width: 90%;
+  }
+  .select-news{
+    width: 90%;
+  }
 }
