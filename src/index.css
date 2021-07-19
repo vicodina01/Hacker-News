@@ -141,7 +141,8 @@ body {
   letter-spacing: 0.25px;
   color: #6b6b6b;
 }
-a >.task-title{
+
+.task-link{
   text-decoration: none;
 }
 
